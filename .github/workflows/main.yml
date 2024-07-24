@@ -11,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3 # Updated to v3 for Node.js 20
+      uses: actions/checkout@v3
 
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.19.3' # Use 'latest' to get the most recent version
+        flutter-version: '3.19.3'
 
     - name: Install dependencies
       run: flutter pub get
@@ -24,11 +24,17 @@ jobs:
     - name: Build Windows application
       run: flutter build windows
 
-    - name: List build directory
-      run: dir build/windows/runner/Release/
+    - name: List build/windows directory
+      run: dir build/windows
+
+    - name: List build/windows/runner directory
+      run: dir build/windows/runner
+
+    - name: List build/windows/runner/Release directory
+      run: dir build/windows/runner/Release
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3 # Updated to v3 for Node.js 20
+      uses: actions/upload-artifact@v3
       with:
         name: windows-build
         path: build/windows/runner/Release/
