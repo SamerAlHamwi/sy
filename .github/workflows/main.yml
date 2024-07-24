@@ -14,9 +14,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Flutter
-      uses: subosito/flutter-action@v1
+      uses: subosito/flutter-action@v2
       with:
-        flutter-version: 'stable'
+        flutter-version: '3.19.3' # Use 'latest' to get the most recent version
 
     - name: Install dependencies
       run: flutter pub get
