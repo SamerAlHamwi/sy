@@ -10,22 +10,37 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v1
-      with:
-        flutter-version: 'stable'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.3'
 
-    - name: Install dependencies
-      run: flutter pub get
+      - name: Install dependencies
+        run: flutter pub get
 
-    - name: Build Windows application
-      run: flutter build windows
+      - name: Ensure Windows platform is enabled
+        run: flutter config --enable-windows-desktop
 
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: windows-build
-        path: build/windows/runner/Release/
+      - name: Create Windows platform (if necessary)
+        run: flutter create .
+
+      - name: Build Windows application
+        run: flutter build windows
+
+      - name: List build/windows directory
+        run: dir build/windows
+
+      - name: List build/windows/runner directory
+        run: dir build/windows/runner
+
+      - name: List build/windows/runner/Release directory
+        run: dir build/windows/runner/Release
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-build
+          path: build/windows/runner/Release/
