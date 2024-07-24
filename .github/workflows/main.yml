@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3 # Updated to v3 for Node.js 20
 
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
@@ -24,8 +24,11 @@ jobs:
     - name: Build Windows application
       run: flutter build windows
 
+    - name: List build directory
+      run: dir build/windows/runner/Release/
+
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3 # Updated to v3 for Node.js 20
       with:
         name: windows-build
         path: build/windows/runner/Release/
