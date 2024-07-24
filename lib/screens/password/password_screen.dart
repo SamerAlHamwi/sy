@@ -56,8 +56,8 @@ class _PasswordScreenState extends State<PasswordScreen> {
           ),
           ElevatedButton(
             onPressed: () async {
-              String password = generatePassword();
-              print(password);
+              // String password = generatePassword();
+              // print(password);
               if(await getDevice()){
                 String password = generatePassword();
                 if(password == passwordController.text.trim()){
