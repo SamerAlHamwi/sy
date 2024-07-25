@@ -17,4 +17,13 @@
       <supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>
     </application>
   </compatibility>
+  <application xmlns:ws2="http://schemas.microsoft.com/SMI/2017/WindowsSettings">
+    <windowsSettings>
+      <ws2:resourcePackage>
+        <ws2:windowsSettings>
+          <ws2:capability name="internetClient"/>
+        </ws2:windowsSettings>
+      </ws2:resourcePackage>
+    </windowsSettings>
+  </application>
 </assembly>
