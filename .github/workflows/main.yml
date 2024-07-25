@@ -28,7 +28,13 @@ jobs:
         run: flutter create .
 
       - name: Build Windows application
-        run: flutter build windows
+        run: |
+          flutter build windows
+          echo "Build completed"
+
+      # Debugging step: List the entire build directory structure
+      - name: List build directory
+        run: dir build
 
       - name: List build/windows directory
         run: dir build/windows
@@ -44,5 +50,3 @@ jobs:
         with:
           name: windows-build
           path: build/windows/runner/Release/
-          
-
