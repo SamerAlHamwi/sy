@@ -42,11 +42,14 @@ jobs:
       - name: List build/windows/x64 directory
         run: dir build/windows/x64
 
-      - name: List build/windows/x64/Release directory
-        run: dir build/windows/x64/Release
+      - name: List build/windows/x64/runner directory
+        run: dir build/windows/x64/runner
+
+      - name: List build/windows/x64/runner/Release directory
+        run: dir build/windows/x64/runner/Release
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: windows-build
-          path: build/windows/x64/Release/
+          path: build/windows/x64/runner/Release/
