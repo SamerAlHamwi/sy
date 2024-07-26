@@ -38,13 +38,11 @@ dependencies:
   path_provider:
   crypto:
   top_snackbar_flutter: ^3.1.0
-  image:
   intl:
   dio: ^5.4.3+1
   audioplayers: ^6.0.0
   get_storage: ^2.1.1
   device_info_plus: ^10.1.0
-#  google_ml_kit: ^0.18.0
 
 
 dev_dependencies:

@@ -2,15 +2,18 @@
 
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:flutter/material.dart';
 import 'package:sy/models/alias_enum.dart';
 import 'package:sy/models/login_model.dart';
 import 'package:sy/models/process_model.dart';
 import 'package:sy/screens/home/home.dart';
 import 'package:sy/screens/settings/settings.dart';
+import 'package:sy/utils/dio_client.dart';
 import 'package:sy/utils/utils.dart';
 import 'package:sy/widgets/custom_textfield.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -120,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     const loginUrl = 'https://api.ecsc.gov.sy:8080/secure/auth/login';
 
-    final dio = Dio();
+    final Dio dio = DioClient.getDio();
 
     try {
       final response = await dio.post(
@@ -209,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     const getTransactionsUrl = 'https://api.ecsc.gov.sy:8080/dbm/db/execute';
 
-    final dio = Dio();
+    final Dio dio = DioClient.getDio();
 
     try {
       final response = await dio.post(

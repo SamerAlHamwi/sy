@@ -12,6 +12,7 @@ import 'package:sy/models/alias_enum.dart';
 import 'package:sy/models/process_model.dart';
 import 'package:sy/screens/add_process/models/add_process_model.dart';
 import 'package:sy/screens/settings/settings.dart';
+import 'package:sy/utils/dio_client.dart';
 import 'package:sy/utils/keys.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -125,7 +126,7 @@ class Utils {
   static getMyProcesses() async {
     const getTransactionsUrl = 'https://api.ecsc.gov.sy:8080/dbm/db/execute';
 
-    final dio = Dio();
+    final Dio dio = DioClient.getDio();
 
     try {
       final response = await dio.post(
@@ -164,7 +165,7 @@ class Utils {
   static addProcess(Map model) async {
     const addTransactionsUrl = 'https://api.ecsc.gov.sy:8080/dbm/db/execute';
 
-    final dio = Dio();
+    final Dio dio = DioClient.getDio();
 
     try {
       final response = await dio.post(
@@ -204,7 +205,7 @@ class Utils {
   static deleteProcess(int id) async {
     const getTransactionsUrl = 'https://api.ecsc.gov.sy:8080/dbm/db/execute';
 
-    final dio = Dio();
+    final Dio dio = DioClient.getDio();
 
     try {
       final response = await dio.post(

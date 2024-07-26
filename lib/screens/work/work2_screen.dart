@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:sy/constants/constans.dart';
 import 'package:sy/models/alias_enum.dart';
 import 'package:sy/screens/settings/settings.dart';
+import 'package:sy/utils/dio_client.dart';
 import 'package:sy/utils/utils.dart';
 import 'package:sy/widgets/clock_widget.dart';
 import 'package:sy/widgets/custom_textfield.dart';
@@ -158,7 +159,7 @@ class _WorkPage2State extends State<WorkPage2> with AutomaticKeepAliveClientMixi
 
     final captchaUrl = 'https://api.ecsc.gov.sy:8080/files/fs/captcha/$id';
 
-    final dio = Dio();
+    final Dio dio = DioClient.getDio();
 
     try {
       final response = await dio.get(captchaUrl, options: Utils.getOptions(AliasEnum.none));
@@ -220,7 +221,7 @@ class _WorkPage2State extends State<WorkPage2> with AutomaticKeepAliveClientMixi
 
   Future<void> reservePassport(int id, int captcha) async {
     final reserveUrl = 'https://api.ecsc.gov.sy:8080/rs/reserve?id=$id&captcha=$captcha';
-    final dio = Dio();
+    final Dio dio = DioClient.getDio();
 
     for(int i = 0;i < 5;i++){
       try {
