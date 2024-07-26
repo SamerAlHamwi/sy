@@ -127,11 +127,17 @@ class _PasswordScreenState extends State<PasswordScreen> {
 
   Future<bool> getDevice() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
 
-    if(Platform.isAndroid && androidInfo.isPhysicalDevice){
+    if(Platform.isAndroid){
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
       setState(() {
         id = androidInfo.id;
+      });
+    }
+    if(Platform.isWindows){
+      WindowsDeviceInfo windowsInfo = await deviceInfo.windowsInfo;
+      setState(() {
+        id = windowsInfo.deviceId;
       });
     }
     if(supportedDevices.contains(id.toUpperCase())){
@@ -151,6 +157,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
     'UP1A.231005.007', //hamzeh
      //'QKQ1.190910.002', //samer
     'TP1A.220624.014', //yazan
+    '{A1DF9B3F-E811-434B-9DD4-26E22FE1B836}'//samer laptop
   ];
 
 }

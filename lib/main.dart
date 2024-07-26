@@ -48,8 +48,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      //home: const PasswordScreen(),
-      home: SettingsData.hasToken() ? const HomeScreen(isWithUpdate: true,) : const LoginScreen(),
+      home: const PasswordScreen(),
+      //home: SettingsData.hasToken() ? const HomeScreen(isWithUpdate: true,) : const LoginScreen(),
     );
   }
 }
