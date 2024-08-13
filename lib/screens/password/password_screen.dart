@@ -74,7 +74,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   );
                 }
               }
-              else if(passwordController.text.trim() == 'rafah'){
+              else if(passwordController.text.trim() == 'rafah' || passwordController.text.trim() == 'mhd'){
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context)=> SettingsData.hasToken() ? const HomeScreen(isWithUpdate: true,) : const LoginScreen(),
                 ));
@@ -104,7 +104,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
   String generatePassword() {
     DateTime now = DateTime.now();
 
-    DateTime sixAmToday = DateTime(now.year, now.month, now.day, 8, 04, 29);
+    DateTime sixAmToday = DateTime(now.year, now.month, now.day, 7, 04, 29);
 
     DateTime referenceTime;
     if (now.isBefore(sixAmToday)) {
@@ -151,12 +151,13 @@ class _PasswordScreenState extends State<PasswordScreen> {
     'TP1A.220624.014', //Mahmoud
     'SKQ1.220617.001', //Mahmoud
     'HUAWEISTK-L21', //Mahmoud
-    'RKQ1.200903.002', //hamzeh
-    'RP1A.200720.011', //hamzeh
-    'TP1A.220624.014', //hamzeh
-    'UP1A.231005.007', //hamzeh
+    'SP1A.210812.016', //Mahmoud
+    'TP1A.220624.014', //Mahmoud
+    'RKQ1.200903.002', //Mahmoud
+    // 'RP1A.200720.011', //hamzeh
+    // 'TP1A.220624.014', //hamzeh
+    // 'UP1A.231005.007', //hamzeh
      //'QKQ1.190910.002', //samer
-    'TP1A.220624.014', //yazan
     '{A1DF9B3F-E811-434B-9DD4-26E22FE1B836}', //samer laptop
     '{E3D9C5BE-3D2C-4C2E-ACF8-A108FF8A3EC5}', //Mahmoud laptop
   ];

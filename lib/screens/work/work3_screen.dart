@@ -77,12 +77,34 @@ class _WorkPage3State extends State<WorkPage3> with AutomaticKeepAliveClientMixi
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  ElevatedButton(
+                    onPressed: (){
+                      getCaptcha(int.parse(SettingsData.getId1));
+                    },
+                    child: _isLoading
+                        ? const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 2.0,
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Text('Loading...'),
+                      ],
+                    )
+                        : const Text('معادلة'),
+                  ),
                   SizedBox(
-                    width: width * 0.30,
+                    width: width * 0.15,
                     child: CustomTextField(
                       controller: solveController,
                       readOnly: true,
-                      hint: 'حل المعادلة',
+                      hint: 'الحل',
                       onChanged: (String? value) {  },
                     ),
                   ),
