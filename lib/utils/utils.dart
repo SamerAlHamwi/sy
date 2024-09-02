@@ -48,7 +48,7 @@ class Utils {
       headers.addAll({
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
-        'Accept-Language': 'en-US,en;q=0.9,ar;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
         'Connection': 'keep-alive',
         'Cache-Control': 'max-age=0',
         'Host': 'api.ecsc.gov.sy:8080',
@@ -257,3 +257,21 @@ class Utils {
 
 }
 
+// headers.addAll({
+//         'Accept': 'application/json, text/plain, */*',
+//     'Accept-Encoding': 'gzip, deflate, br, zstd',
+//     'Accept-Language': 'en-US,en;q=0.5',
+//     'Connection': 'keep-alive',
+//     'Cache-Control': 'max-age=0',
+//     'Host': 'api.ecsc.gov.sy:8080',
+//     'Referer': 'https://www.ecsc.gov.sy/',
+//     'Origin': 'https://www.ecsc.gov.sy',
+//     'Sec-Ch-Ua': '"Not/A)Brand";v="8", "Chromium";v="126", "Microsoft Edge";v="126"',
+//     'Sec-Ch-Ua-Mobile': '?0',
+//     'Sec-Ch-Ua-Platform': 'Windows',
+//     'Sec-Fetch-Dest': 'empty',
+//     'Sec-Fetch-Mode': 'cors',
+//     'Sec-Fetch-Site': 'same-site',
+//     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0',
+//     'Source': 'WEB',
+//   });

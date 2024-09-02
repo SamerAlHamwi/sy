@@ -17,6 +17,8 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../utils/dio_client.dart';
+import '../../widgets/custom_captcha_widget.dart';
+import '../../widgets/custom_keyboard.dart';
 
 
 class WorkPage4 extends StatefulWidget {
@@ -46,32 +48,9 @@ class _WorkPage4State extends State<WorkPage4> with AutomaticKeepAliveClientMixi
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(height: 20,),
+            CustomImageWidget(imageBytes: _imageBytes,isFirst: false,),
 
-            _imageBytes != null
-                ? ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.memory(
-                _imageBytes!,
-                height: 250,
-                width: 300,
-              ),
-            )
-                : Container(
-              height: 250,
-              width: 300,
-              decoration: BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.circular(12)
-              ),
-              child: Center(
-                child: Text(
-                  SettingsData.getId2,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             const StreamClockWidget(),
             const SizedBox(height: 10),
 
@@ -96,8 +75,6 @@ class _WorkPage4State extends State<WorkPage4> with AutomaticKeepAliveClientMixi
                             strokeWidth: 2.0,
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Text('Loading...'),
                       ],
                     )
                         : const Text('معادلة'),
@@ -111,15 +88,15 @@ class _WorkPage4State extends State<WorkPage4> with AutomaticKeepAliveClientMixi
                       onChanged: (String? value) {  },
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: (){
-                      if(solveController.text.isNotEmpty){
-                        reservePassport(int.parse(SettingsData.getId2),int.parse(solveController.text));
-                        solveController.clear();
-                      }
-                    },
-                    child: const Text('تثبيت'),
-                  ),
+                  // ElevatedButton(
+                  //   onPressed: (){
+                  //     if(solveController.text.isNotEmpty){
+                  //       reservePassport(int.parse(SettingsData.getId2),int.parse(solveController.text));
+                  //       solveController.clear();
+                  //     }
+                  //   },
+                  //   child: const Text('تثبيت'),
+                  // ),
                   ElevatedButton(
                     onPressed: (){
                       getCaptcha(int.parse(SettingsData.getId2));
@@ -136,8 +113,6 @@ class _WorkPage4State extends State<WorkPage4> with AutomaticKeepAliveClientMixi
                             strokeWidth: 2.0,
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Text('Loading...'),
                       ],
                     )
                         : const Text('معادلة'),
@@ -147,7 +122,7 @@ class _WorkPage4State extends State<WorkPage4> with AutomaticKeepAliveClientMixi
             ),
             const SizedBox(height: 10,),
 
-            CustomNumberKeyboard(
+            CustomKeyboard(
               onBackspaceTap: (){
                 if(solveController.text.isNotEmpty){
                   solveController.text = solveController.text.substring(0, solveController.text.length - 1);
