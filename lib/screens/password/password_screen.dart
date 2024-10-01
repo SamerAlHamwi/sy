@@ -56,10 +56,10 @@ class _PasswordScreenState extends State<PasswordScreen> {
           ),
           ElevatedButton(
             onPressed: () async {
-              // String password = generatePassword();
+              String password = generatePassword();
               // print(password);
-              if(await getDevice()){
-                String password = generatePassword();
+              // if(await getDevice()){
+              //   String password = generatePassword();
                 if(password == passwordController.text.trim()){
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context)=> SettingsData.hasToken() ? const HomeScreen(isWithUpdate: true,) : const LoginScreen(),
@@ -73,20 +73,20 @@ class _PasswordScreenState extends State<PasswordScreen> {
                     ),
                   );
                 }
-              }
-              else if(passwordController.text.trim() == 'rafah' || passwordController.text.trim() == 'mhd'){
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=> SettingsData.hasToken() ? const HomeScreen(isWithUpdate: true,) : const LoginScreen(),
-                ));
-              }
-              else{
-                showTopSnackBar(
-                  Overlay.of(context),
-                  const CustomSnackBar.error(
-                    message: 'الجهاز الخاص بك غير مصرح به لاستخدام هذا التطبيق',
-                  ),
-                );
-              }
+              // }
+              // else if(passwordController.text.trim() == 'rafah' || passwordController.text.trim() == 'mhd'){
+              //   Navigator.push(context, MaterialPageRoute(
+              //     builder: (context)=> SettingsData.hasToken() ? const HomeScreen(isWithUpdate: true,) : const LoginScreen(),
+              //   ));
+              // }
+              // else{
+              //   showTopSnackBar(
+              //     Overlay.of(context),
+              //     const CustomSnackBar.error(
+              //       message: 'الجهاز الخاص بك غير مصرح به لاستخدام هذا التطبيق',
+              //     ),
+              //   );
+              // }
             },
             child: const Text('متابعة'),
           ),
