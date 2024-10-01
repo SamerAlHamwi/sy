@@ -164,6 +164,39 @@ class Utils {
     }
   }
 
+  static Future<int> solveCaptcha(Map model) async {
+    const solveUrl = 'http://127.0.0.1:1234/send_api';
+
+    final Dio dio = DioClient.getDio();
+
+    try {
+      final response = await dio.post(
+        solveUrl,
+        data: model,
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = response.data;
+        return data['result'];
+      } else {
+        return -1;
+      }
+    } on DioException catch (e) {
+      String errorMessage = e.response?.data['Message'] ?? 'An unexpected error occurred.';
+
+      showTopSnackBar(
+        Overlay.of(Keys.overlayProcessKey.currentState!.context),
+        CustomSnackBar.error(
+          message: errorMessage,
+        ),
+      );
+
+      return -1;
+    } catch (e) {
+      return -1;
+    }
+  }
+
   static addProcess(Map model) async {
     const addTransactionsUrl = 'https://api.ecsc.gov.sy:8080/dbm/db/execute';
 

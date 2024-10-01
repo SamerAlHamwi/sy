@@ -162,7 +162,14 @@ class _WorkPage2State extends State<WorkPage2> with AutomaticKeepAliveClientMixi
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = response.data;
         final String imageUrl = data['file'];
-
+        Utils.solveCaptcha({
+          'img_url': imageUrl,
+          'captcha': 1,
+        }).then((value){
+          if(value != -1){
+            reservePassport(id,value);
+          }
+        });
         _imageBytes = base64Decode(imageUrl);
         Utils.playAudio(AudioPlayer(),pageTwo);
         setState(() {});
