@@ -104,7 +104,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
   String generatePassword() {
     DateTime now = DateTime.now();
 
-    DateTime sixAmToday = DateTime(now.year, now.month, now.day, 7, 04, 29);
+    DateTime sixAmToday = DateTime(now.year, now.month, now.day, 8, 14, 29);
 
     DateTime referenceTime;
     if (now.isBefore(sixAmToday)) {
@@ -150,13 +150,12 @@ class _PasswordScreenState extends State<PasswordScreen> {
     'PPR1.180610.011', //Mahmoud
     'TP1A.220624.014', //Mahmoud
     'SKQ1.220617.001', //Mahmoud
-    'HUAWEISTK-L21', //Mahmoud
     'SP1A.210812.016', //Mahmoud
     'TP1A.220624.014', //Mahmoud
     'RKQ1.200903.002', //Mahmoud
-    'PPR1.180610.011', //mayson
+    'PPR1.180610.011', //Mayson
     'TP1A.220624.014',
-    'HUAWEISTK-L21', //Hamzeh
+    'RP1A.200720.011', //Hamzeh
     '{A1DF9B3F-E811-434B-9DD4-26E22FE1B836}', //samer laptop
     '{E3D9C5BE-3D2C-4C2E-ACF8-A108FF8A3EC5}', //Mahmoud laptop
   ];
