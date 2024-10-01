@@ -173,7 +173,14 @@ class Utils {
       final response = await dio.post(
         solveUrl,
         data: model,
+        options: Options(
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        )
       );
+
+      print(response.data);
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = response.data;

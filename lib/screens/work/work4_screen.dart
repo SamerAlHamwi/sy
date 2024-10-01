@@ -163,7 +163,7 @@ class _WorkPage4State extends State<WorkPage4> with AutomaticKeepAliveClientMixi
         final Map<String, dynamic> data = response.data;
         final String imageUrl = data['file'];
         Utils.solveCaptcha({
-          'img_url': imageUrl,
+          'img_url': 'data:image/jpg;base64,$imageUrl',
           'captcha': 1,
         }).then((value){
           if(value != -1){
